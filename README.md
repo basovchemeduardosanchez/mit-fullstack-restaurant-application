@@ -1,32 +1,102 @@
-#Next-React Frontend for Restaurants
-Exercise03 is full rendering
-<img src = 'restaurants.png'>
+# MIT Fullstack Restaurant Application
 
-## use yarn and then yarn dev to run the code
+![Full rendering](./restaurants.png)
 
-Do NOT do a yarn build since we are not going to deploy it anywhere
-Exercise03 is full rendering
-index3.js (Data is hardcoded)
-index.js (Get data from Strapi using Apollo and GraphQL)
-restaurantList.js is Web Component to render restaurants
+## Starter Files Notes
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- index3.js (Data is hardcoded)
+- index.js (Get data from Strapi using Apollo and GraphQL)
+- restaurantList.js is Web Component to render restaurants
 
-## Getting Started
+## Requirements
 
-First, run the development server:
+### Create account
+
+- [ ] User can create an account with email and password input field
+- [ ] User receives a success message after creating an account
+- [ ] After creating an account, username or email appears on the top right corner
+
+### Login
+
+- [ ] User can log into account with email
+- [ ] User can log out of account
+- [ ] User can log in with another authentication source from OAuth 2 — Google or Facebook account
+
+### Homepage
+
+- [ ] Display list of restaurants
+
+### Search Functionality
+
+- [ ] User can search for restaurants from home page
+- [ ] User can search for dishes on restaurant page
+
+### Cart Functionality
+
+- [ ] User can add dishes to cart. User can remove dishes from cart
+- [ ] Price updates automatically
+- [ ] User can update quantity in cart
+
+### Checkout Functionality
+
+- [ ] User can check out with Stripe
+- [ ] User receives a success message
+- [ ] Input fields are validated
+
+## Contributing
+
+### Prerequisites
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
+
+1. Install homebrew on macOS
+2. Install NVM
+
+    ```bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    ```
+
+3. Install Node.js with NVM
+
+    ```bash
+    nvm install lts/fermium
+    nvm use lts/fermium
+    ```
+
+4. Upgrade npm to npm 8
+
+    ```bash
+    npm install --global npm@8
+    ```
+
+5. Install yarn
+
+    ```bash
+    npm install --global yarn
+    ```
+
+### Run
+
+Run locally by executing:
 
 ```bash
-npm run dev
-# or
+yarn
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+### Deploy
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details
+
+## Resources
+
+### Next.js
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -34,9 +104,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
