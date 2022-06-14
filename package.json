@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "develop": "concurrently \"yarn:develop:frontend\" \"yarn:develop:backend\"",
+    "develop:frontend": "next dev",
+    "develop:backend": "yarn --cwd 'backend' develop",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "markdownlint .",
+    "postinstall": "yarn --cwd 'backend'"
   },
   "dependencies": {
     "@apollo/client": "^3.2.4",
@@ -23,5 +27,9 @@
   "description": "Exercise05 is full Shopping Cart with Stripe Billing",
   "main": "index.js",
   "author": "jrw@mit.edu",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "markdownlint-cli": "^0.31.1"
+  }
 }
