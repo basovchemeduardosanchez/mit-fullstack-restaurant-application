@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        ".env": "ini",
+        ".env.example": "ini"
+    },
+    "npm.scriptExplorerAction": "run",
+    "npm.exclude": [
+        "**/backend/.cache/**",
+        "**/backend/.cache"
+    ]
+}
