@@ -10,7 +10,7 @@ function MyApp(props){
   var {cart,addItem,removeItem} = useContext(AppContext)
   const [state,setState] = useState({cart:cart});
   const [isAuthenticated, setIsAuthenticated] = useState( false );
-  const [user, setUser] = useState( {} );
+  const [user, setUser] = useState( null );
   const { Component, pageProps } = props;
 
   addItem = (item) => {
