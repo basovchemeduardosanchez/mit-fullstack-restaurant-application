@@ -5,10 +5,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { Container, Nav, NavItem } from "reactstrap";
 import AppContext from "./context";
+import { logout } from "./auth";
 
 const Layout = (props) => {
 const title = "Welcome to Nextjs";
-const {user} = useContext(AppContext);
+const appContext = useContext(AppContext);
+const { user } = appContext;
+
   return (
     <div>
       <Head>
@@ -42,7 +45,7 @@ const {user} = useContext(AppContext);
             </Link>
           </NavItem>
           <NavItem className="ml-auto">
-            {user ? (
+            {appContext.isAuthenticated ? (
               <h5>{user.username}</h5>
             ) : (
               <Link href="/register">
@@ -51,13 +54,15 @@ const {user} = useContext(AppContext);
             )}
           </NavItem>
           <NavItem>
-            {user ? (
+            {appContext.isAuthenticated ? (
               <Link href="/">
                 <a
                   className="nav-link"
-                  onClick={() => {
+                  onClick={event => {
+                    event.preventDefault();
+                    appContext.setUser(null);
+                    appContext.setIsAuthenticated( false );
                     logout();
-                    setUser(null);
                   }}
                 >
                   Logout
