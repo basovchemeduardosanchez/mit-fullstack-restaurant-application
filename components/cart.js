@@ -6,7 +6,7 @@ import Link from "next/link"
 // we can pass cart data in via props method 
 // the alternative is using useContext as below
 function Cart() {
-  let isAuthenticated = true;
+  // let isAuthenticated = true;
   let {cart,addItem,removeItem} = useContext(AppContext);
   //const [cartA, setCartA] = useState({cart})
   //cart = value.cart;
