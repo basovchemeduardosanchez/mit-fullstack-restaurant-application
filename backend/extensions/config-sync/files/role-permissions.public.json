@@ -1,0 +1,520 @@
+{
+  "name": "Public",
+  "description": "Default role given to unauthenticated user.",
+  "type": "public",
+  "permissions": {
+    "application": {
+      "controllers": {
+        "dish": {
+          "count": {
+            "enabled": false,
+            "policy": ""
+          },
+          "create": {
+            "enabled": false,
+            "policy": ""
+          },
+          "delete": {
+            "enabled": false,
+            "policy": ""
+          },
+          "find": {
+            "enabled": true,
+            "policy": ""
+          },
+          "findone": {
+            "enabled": true,
+            "policy": ""
+          },
+          "update": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "order": {
+          "count": {
+            "enabled": false,
+            "policy": ""
+          },
+          "create": {
+            "enabled": false,
+            "policy": ""
+          },
+          "delete": {
+            "enabled": false,
+            "policy": ""
+          },
+          "find": {
+            "enabled": false,
+            "policy": ""
+          },
+          "findone": {
+            "enabled": false,
+            "policy": ""
+          },
+          "update": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "restaurant": {
+          "count": {
+            "enabled": false,
+            "policy": ""
+          },
+          "create": {
+            "enabled": false,
+            "policy": ""
+          },
+          "delete": {
+            "enabled": false,
+            "policy": ""
+          },
+          "find": {
+            "enabled": true,
+            "policy": ""
+          },
+          "findone": {
+            "enabled": true,
+            "policy": ""
+          },
+          "update": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      }
+    },
+    "content-manager": {
+      "controllers": {
+        "collection-types": {
+          "bulkdelete": {
+            "enabled": false,
+            "policy": ""
+          },
+          "create": {
+            "enabled": false,
+            "policy": ""
+          },
+          "delete": {
+            "enabled": false,
+            "policy": ""
+          },
+          "find": {
+            "enabled": false,
+            "policy": ""
+          },
+          "findone": {
+            "enabled": false,
+            "policy": ""
+          },
+          "previewmanyrelations": {
+            "enabled": false,
+            "policy": ""
+          },
+          "publish": {
+            "enabled": false,
+            "policy": ""
+          },
+          "unpublish": {
+            "enabled": false,
+            "policy": ""
+          },
+          "update": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "components": {
+          "findcomponentconfiguration": {
+            "enabled": false,
+            "policy": ""
+          },
+          "findcomponents": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updatecomponentconfiguration": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "content-types": {
+          "findcontenttypeconfiguration": {
+            "enabled": false,
+            "policy": ""
+          },
+          "findcontenttypes": {
+            "enabled": false,
+            "policy": ""
+          },
+          "findcontenttypessettings": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updatecontenttypeconfiguration": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "relations": {
+          "find": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "single-types": {
+          "createorupdate": {
+            "enabled": false,
+            "policy": ""
+          },
+          "delete": {
+            "enabled": false,
+            "policy": ""
+          },
+          "find": {
+            "enabled": false,
+            "policy": ""
+          },
+          "publish": {
+            "enabled": false,
+            "policy": ""
+          },
+          "unpublish": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "uid": {
+          "checkuidavailability": {
+            "enabled": false,
+            "policy": ""
+          },
+          "generateuid": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      },
+      "information": {}
+    },
+    "content-type-builder": {
+      "controllers": {
+        "builder": {
+          "getreservednames": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "componentcategories": {
+          "deletecategory": {
+            "enabled": false,
+            "policy": ""
+          },
+          "editcategory": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "components": {
+          "createcomponent": {
+            "enabled": false,
+            "policy": ""
+          },
+          "deletecomponent": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getcomponent": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getcomponents": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updatecomponent": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "connections": {
+          "getconnections": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "contenttypes": {
+          "createcontenttype": {
+            "enabled": false,
+            "policy": ""
+          },
+          "deletecontenttype": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getcontenttype": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getcontenttypes": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updatecontenttype": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      },
+      "information": {}
+    },
+    "email": {
+      "controllers": {
+        "email": {
+          "getsettings": {
+            "enabled": false,
+            "policy": ""
+          },
+          "send": {
+            "enabled": false,
+            "policy": ""
+          },
+          "test": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      },
+      "information": {}
+    },
+    "i18n": {
+      "controllers": {
+        "content-types": {
+          "getnonlocalizedattributes": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "iso-locales": {
+          "listisolocales": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "locales": {
+          "createlocale": {
+            "enabled": false,
+            "policy": ""
+          },
+          "deletelocale": {
+            "enabled": false,
+            "policy": ""
+          },
+          "listlocales": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updatelocale": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      },
+      "information": {}
+    },
+    "upload": {
+      "controllers": {
+        "upload": {
+          "count": {
+            "enabled": false,
+            "policy": ""
+          },
+          "destroy": {
+            "enabled": false,
+            "policy": ""
+          },
+          "find": {
+            "enabled": false,
+            "policy": ""
+          },
+          "findone": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getsettings": {
+            "enabled": false,
+            "policy": ""
+          },
+          "search": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updatesettings": {
+            "enabled": false,
+            "policy": ""
+          },
+          "upload": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      },
+      "information": {}
+    },
+    "users-permissions": {
+      "controllers": {
+        "auth": {
+          "callback": {
+            "enabled": true,
+            "policy": ""
+          },
+          "connect": {
+            "enabled": true,
+            "policy": ""
+          },
+          "emailconfirmation": {
+            "enabled": true,
+            "policy": ""
+          },
+          "forgotpassword": {
+            "enabled": true,
+            "policy": ""
+          },
+          "register": {
+            "enabled": true,
+            "policy": ""
+          },
+          "resetpassword": {
+            "enabled": true,
+            "policy": ""
+          },
+          "sendemailconfirmation": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "user": {
+          "count": {
+            "enabled": false,
+            "policy": ""
+          },
+          "create": {
+            "enabled": false,
+            "policy": ""
+          },
+          "destroy": {
+            "enabled": false,
+            "policy": ""
+          },
+          "destroyall": {
+            "enabled": false,
+            "policy": ""
+          },
+          "find": {
+            "enabled": false,
+            "policy": ""
+          },
+          "findone": {
+            "enabled": false,
+            "policy": ""
+          },
+          "me": {
+            "enabled": true,
+            "policy": ""
+          },
+          "update": {
+            "enabled": false,
+            "policy": ""
+          }
+        },
+        "userspermissions": {
+          "createrole": {
+            "enabled": false,
+            "policy": ""
+          },
+          "deleterole": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getadvancedsettings": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getemailtemplate": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getpermissions": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getpolicies": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getproviders": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getrole": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getroles": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getroutes": {
+            "enabled": false,
+            "policy": ""
+          },
+          "index": {
+            "enabled": false,
+            "policy": ""
+          },
+          "searchusers": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updateadvancedsettings": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updateemailtemplate": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updateproviders": {
+            "enabled": false,
+            "policy": ""
+          },
+          "updaterole": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      },
+      "information": {}
+    },
+    "config-sync": {
+      "controllers": {
+        "config": {
+          "exportall": {
+            "enabled": false,
+            "policy": ""
+          },
+          "getdiff": {
+            "enabled": false,
+            "policy": ""
+          },
+          "importall": {
+            "enabled": false,
+            "policy": ""
+          }
+        }
+      },
+      "information": {}
+    }
+  }
+}

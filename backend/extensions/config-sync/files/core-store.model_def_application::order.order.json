@@ -1,0 +1,66 @@
+{
+  "key": "model_def_application::order.order",
+  "value": {
+    "uid": "application::order.order",
+    "collectionName": "orders",
+    "kind": "collectionType",
+    "info": {
+      "name": "order",
+      "description": ""
+    },
+    "options": {
+      "increments": true,
+      "timestamps": [
+        "created_at",
+        "updated_at"
+      ],
+      "comment": ""
+    },
+    "attributes": {
+      "address": {
+        "type": "string"
+      },
+      "city": {
+        "type": "string"
+      },
+      "dishes": {
+        "type": "json",
+        "required": true
+      },
+      "amount": {
+        "type": "integer"
+      },
+      "token": {
+        "type": "string"
+      },
+      "state": {
+        "type": "string"
+      },
+      "charge_id": {
+        "type": "string"
+      },
+      "user": {
+        "type": "string"
+      },
+      "created_by": {
+        "model": "user",
+        "plugin": "admin",
+        "configurable": false,
+        "writable": false,
+        "visible": false,
+        "private": true
+      },
+      "updated_by": {
+        "model": "user",
+        "plugin": "admin",
+        "configurable": false,
+        "writable": false,
+        "visible": false,
+        "private": true
+      }
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

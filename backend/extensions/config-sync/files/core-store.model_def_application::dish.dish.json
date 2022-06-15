@@ -1,0 +1,59 @@
+{
+  "key": "model_def_application::dish.dish",
+  "value": {
+    "uid": "application::dish.dish",
+    "collectionName": "dishes",
+    "kind": "collectionType",
+    "info": {
+      "name": "dish",
+      "description": ""
+    },
+    "options": {
+      "increments": true,
+      "timestamps": [
+        "created_at",
+        "updated_at"
+      ],
+      "comment": ""
+    },
+    "attributes": {
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "text"
+      },
+      "image": {
+        "model": "file",
+        "via": "related",
+        "plugin": "upload"
+      },
+      "price": {
+        "type": "decimal"
+      },
+      "restaurant": {
+        "model": "restaurant",
+        "via": "dishes"
+      },
+      "created_by": {
+        "model": "user",
+        "plugin": "admin",
+        "configurable": false,
+        "writable": false,
+        "visible": false,
+        "private": true
+      },
+      "updated_by": {
+        "model": "user",
+        "plugin": "admin",
+        "configurable": false,
+        "writable": false,
+        "visible": false,
+        "private": true
+      }
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
