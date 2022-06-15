@@ -22,22 +22,22 @@ work, checkout the [Strapi docs](https://docs-v3.strapi.io/developer-docs/latest
 For the **Public** role:
 
 - Application
-  - Resaurant
-    - find
-    - findone
-  - Dish
-    - find
+    - Resaurant
+        - find
+        - findone
+    - Dish
+        - find
 
 For the **Authenticated** role:
 
 - Application
-  - Resaurant
-    - find
-    - findone
-  - Dish
-    - find
-  - Order
-    - create
+    - Resaurant
+        - find
+        - findone
+    - Dish
+        - find
+    - Order
+        - create
 
 ## App Requirements
 
@@ -76,6 +76,147 @@ For the **Authenticated** role:
 - [ ] Input fields are validated
 
 ## Contributing
+
+### Notes
+
+- Do not use the useState hook to work with a single state object unless you're
+    going to set the whole state only once per render. If for some reason you
+    decide to create individual functions to update a single object, calling them
+    in sequence will cause that only the last value is written to the state
+
+    <details>
+    <summary>Wrong Example</summary>
+    <section>
+
+    ```jsx
+    // App.js
+
+    import React, { useState } from 'React';
+    import { AppContext } from './context.js';
+    import Component1 from 'Component1.js'
+
+    function App() {
+        const [ state, setState() ] = useState({ key1: 1, key2: 2 });
+        const setKey1 = ( key1 ) => setState( { ...state, key1 } );
+        const setKey2 = ( key1 ) => setState( { ...state, key2 } );
+
+        // ...
+
+        return (
+            <AppContext.Provider value={{
+                key1: state.key1,
+                setKey1,
+                key2: state.key2,
+                setKey2
+            }}>
+                <Component1 />
+            </AppContext.Provider>
+        )
+    }
+
+    export default App;
+
+    ```
+
+    ```jsx
+    // Component1.js
+
+    import React, { useState } from 'React';
+    import { AppContext } from './context.js';
+
+    function Component1(){
+        const appContext = useContext( AppContext );
+
+        // ...
+
+        const handleClick = () => {
+            appContext.setKey1( 2 );
+            appContext.setKey2( 3 );
+            // Expected new state: { key1: 2, key2: 3 }
+            // Reality: { key1: 1, key2: 3 }
+        }
+
+        return (
+            <button type="button" onClick={ handleClick }>Click me!</button>
+        )
+    }
+
+    export default Component1;
+    ```
+
+    In the above example, the problem is that React does not update the values of
+    the variable linked to the `setState` function immediately but until the JS
+    stack is empty, which means that by the time the `setKey2`
+    function is executed after the button is clicked, the state will continue to
+    be the same and therefore only the value of key2 will be changed
+
+    </section>
+    </details>
+
+    <details>
+    <summary>Right Example</summary>
+    <section>
+
+    ```jsx
+    // App.js
+
+    import React, { useState } from 'React';
+    import { AppContext } from './context.js';
+    import Component1 from 'Component1.js'
+
+    function App() {
+        const [ key1, setKey1 ] = useState( 1 );
+        const [ key2, setKey2 ] = useState( 2 );
+
+        // ...
+
+        return (
+            <AppContext.Provider value={{
+                key1,
+                setKey1,
+                key2,
+                setKey2
+            }}>
+                <Component1 />
+            </AppContext.Provider>
+        )
+    }
+
+    export default App;
+
+    ```
+
+    ```jsx
+    // Component1.js
+
+    import React, { useState } from 'React';
+    import { AppContext } from './context.js';
+
+    function Component1(){
+        const appContext = useContext( AppContext );
+
+        // ...
+
+        const handleClick = () => {
+            appContext.setKey1( 2 );
+            appContext.setKey2( 3 );
+            // Expected new state: { key1: 2, key2: 3 }
+            // Reality: { key1: 2, key2: 3 }
+        }
+
+        return (
+            <button type="button" onClick={ handleClick }>Click me!</button>
+        )
+    }
+
+    export default Component1;
+    ```
+
+    In the above example, since both variables are separated, each will get its
+    own value as expected
+
+    </section>
+    </details>
 
 ### Prerequisites
 
