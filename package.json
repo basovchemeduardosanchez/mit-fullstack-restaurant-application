@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "develop": "concurrently \"yarn:develop:frontend\" \"yarn:develop:backend\"",
+    "build": "concurrently \"yarn:build:frontend\" \"yarn:build:backend\"",
     "develop:frontend": "next dev",
     "develop:backend": "yarn --cwd 'backend' develop",
-    "build": "next build",
+    "build:frontend": "next build",
+    "build:backend": "yarn --cwd 'backend' build",
     "start": "next start",
     "lint": "markdownlint .",
     "postinstall": "yarn --cwd 'backend'"
