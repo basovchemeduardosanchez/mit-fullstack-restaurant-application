@@ -25,8 +25,8 @@ const Register = () => {
       <Row>
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
-            <div className="header">
-              <img src="http://localhost:1337/uploads/5a60a9d26a764e7cba1099d8b157b5e9.png" />
+            <div className="header" style={{display:'flex'}}>
+              <h1 style={{margin:'auto', color: 'white'}}>Register</h1>
             </div>
             <section className="wrapper">
               {Object.entries(error).length !== 0 &&
@@ -98,12 +98,23 @@ const Register = () => {
                           .then((res) => {
                             // set authed user in global context object
                             appContext.setUser(res.data.user);
+                            appContext.setIsAuthenticated( true );
+                            appContext.setNotification( {
+                              color: 'success',
+                              message: 'User registered'
+                            } );
+                            setTimeout( () => appContext.setNotification( null ), 3000 );
                             setLoading(false);
                             console.log(`registered user: ${JSON.stringify(res.data)}`)
                           })
                           .catch((error) => {
                             console.log(`error in register: ${error}`)
                             //setError(error.response.data);
+                            appContext.setNotification( {
+                              color: 'danger',
+                              message: 'Error registering user: ' + error.response?.data?.message?.[0]?.messages?.[0]?.message
+                            } );
+                            setTimeout( () => appContext.setNotification( null ), 3000 );
                             setLoading(false);
                           });
                       }}
