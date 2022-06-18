@@ -43,14 +43,14 @@ For the **Authenticated** role:
 
 ### Create account
 
-- [X] User can create an account with email and password input field
-- [X] User receives a success message after creating an account
+- [x] User can create an account with email and password input field
+- [x] User receives a success message after creating an account
 - [x] After creating an account, username or email appears on the top right corner
 
 ### Login
 
-- [ ] User can log into account with email
-- [ ] User can log out of account
+- [x] User can log into account with email
+- [x] User can log out of account
 - [ ] User can log in with another authentication source from OAuth 2 — Google
     or Facebook account
 
