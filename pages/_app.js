@@ -11,6 +11,7 @@ function MyApp(props){
   const [state,setState] = useState({cart:cart});
   const [isAuthenticated, setIsAuthenticated] = useState( false );
   const [user, setUser] = useState( null );
+  const [notification, setNotification] = useState( null );
   const { Component, pageProps } = props;
 
   addItem = (item) => {
@@ -81,7 +82,7 @@ function MyApp(props){
   }
 
   return (
-    <AppContext.Provider value={{cart: state.cart, addItem: addItem, removeItem: removeItem,isAuthenticated,user,setUser, setIsAuthenticated}}>
+    <AppContext.Provider value={{cart: state.cart, addItem: addItem, removeItem: removeItem,isAuthenticated,user,setUser, setIsAuthenticated, notification, setNotification}}>
       <Head>
         <link
           rel="stylesheet"

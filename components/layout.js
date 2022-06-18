@@ -3,7 +3,7 @@
 import React, { useContext } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { Container, Nav, NavItem } from "reactstrap";
+import { Container, Nav, NavItem, Alert } from "reactstrap";
 import AppContext from "./context";
 import { logout } from "./auth";
 
@@ -75,6 +75,12 @@ const { user } = appContext;
             )}
           </NavItem>
         </Nav>
+        { 
+          appContext.notification ?
+            <Alert color={appContext.notification.color}>{appContext.notification.message}</Alert>
+            :
+            null
+        }
       </header>
       <Container>{props.children}</Container>
     </div>
