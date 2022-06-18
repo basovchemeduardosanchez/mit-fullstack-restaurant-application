@@ -56,24 +56,24 @@ For the **Authenticated** role:
 
 ### Homepage
 
-- [ ] Display list of restaurants
+- [x] Display list of restaurants
 
 ### Search Functionality
 
-- [ ] User can search for restaurants from home page
+- [x] User can search for restaurants from home page
 - [ ] User can search for dishes on restaurant page
 
 ### Cart Functionality
 
-- [ ] User can add dishes to cart. User can remove dishes from cart
-- [ ] Price updates automatically
-- [ ] User can update quantity in cart
+- [x] User can add dishes to cart. User can remove dishes from cart
+- [x] Price updates automatically
+- [x] User can update quantity in cart
 
 ### Checkout Functionality
 
 - [ ] User can check out with Stripe
 - [ ] User receives a success message
-- [ ] Input fields are validated
+- [x] Input fields are validated
 
 ## Contributing
 
