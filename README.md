@@ -43,9 +43,9 @@ For the **Authenticated** role:
 
 ### Create account
 
-- [ ] User can create an account with email and password input field
-- [ ] User receives a success message after creating an account
-- [ ] After creating an account, username or email appears on the top right corner
+- [X] User can create an account with email and password input field
+- [X] User receives a success message after creating an account
+- [x] After creating an account, username or email appears on the top right corner
 
 ### Login
 
