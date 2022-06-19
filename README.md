@@ -51,8 +51,8 @@ For the **Authenticated** role:
 
 - [x] User can log into account with email
 - [x] User can log out of account
-- [ ] User can log in with another authentication source from OAuth 2 — Google
-    or Facebook account
+- [x] User can log in with another authentication source from OAuth 2 — Disccord
+    account
 
 ### Homepage
 
@@ -294,6 +294,7 @@ for more details
 - <https://docs-v3.strapi.io/developer-docs/latest/update-migration-guides/update-version.html#upgrading-the-dependencies>
 - <https://github.com/strapi/strapi/issues/9145>
 - <https://github.com/strapi/strapi/issues/10326>
+- <https://docs-v3.strapi.io/developer-docs/latest/development/plugins/users-permissions.html#providers>
 
 ### Next.js
 

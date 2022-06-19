@@ -1,5 +1,6 @@
 /* /pages/register.js */
 
+import { useRouter } from "next/router";
 import React, { useState, useContext } from "react";
 
 import {
@@ -15,11 +16,14 @@ import {
 import { registerUser } from "../components/auth";
 import AppContext from "../components/context";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
 const Register = () => {
   const [data, setData] = useState({ email: "", username: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
   const appContext = useContext(AppContext);
+  const router = useRouter();
   return (
     <Container>
       <Row>
@@ -123,6 +127,10 @@ const Register = () => {
                     </Button>
                   </FormGroup>
                 </fieldset>
+                <br></br>
+                <Button className="w-100" color="outline-secondary" onClick={() => {
+                  router.push( `${ API_URL }/connect/discord` )
+                }}>Sign up with Discord</Button>
               </Form>
             </section>
           </div>

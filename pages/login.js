@@ -15,6 +15,8 @@ import {
 import { login } from "../components/auth";
 import AppContext from "../components/context";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
 function Login(props) {
   const [data, updateData] = useState({ identifier: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -91,11 +93,24 @@ function Login(props) {
                             setLoading(false);
                             // set authed User in global context to update header/app state
                             appContext.setUser(res.data.user);
+                            console.log( res.data.user );
                             appContext.setIsAuthenticated( true );
+                            appContext.setNotification( {
+                              color: 'success',
+                              message: 'Login successful'
+                            } );
+                            setTimeout( () => appContext.setNotification( null ), 3000 );
                           })
                           .catch((error) => {
                             appContext.setUser( null );
                             appContext.setIsAuthenticated( false );
+                            let message = error?.response?.data?.message?.[0]?.messages?.[0];
+                            message = message.message ?? message.id;
+                            appContext.setNotification( {
+                              color: 'danger',
+                              message: 'Error signing in user: ' + ( message )
+                            } );
+                            setTimeout( () => appContext.setNotification( null ), 3000 );
                             //setError(error.response.data);
                             setLoading(false);
                           });
@@ -105,6 +120,10 @@ function Login(props) {
                     </Button>
                   </FormGroup>
                 </fieldset>
+                <br></br>
+                <Button className="w-100" color="outline-secondary" onClick={() => {
+                  router.push( `${ API_URL }/connect/discord` )
+                }}>Sign in with Discord</Button>
               </Form>
             </section>
           </div>
