@@ -6,6 +6,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CardSection from "./cardSection";
 import AppContext from "./context";
 import Cookies from "js-cookie";
+import Router from "next/router";
 
 function CheckoutForm() {
   const [data, setData] = useState({
@@ -38,6 +39,15 @@ function CheckoutForm() {
     const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
     const token = await stripe.createToken(cardElement);
+    if ( token.error ) {
+      appContext.setNotification( {
+        color: 'danger',
+        message: 'An error occurred: ' + token.error.message
+      } );
+      setTimeout(() => appContext.setNotification( null ), 3000);
+      console.error( token );
+      return;
+    }
     const userToken = Cookies.get("token");
     const response = await fetch(`${API_URL}/orders`, {
       method: "POST",
@@ -49,13 +59,27 @@ function CheckoutForm() {
         city: data.city,
         state: data.state,
         token: token.token.id,
+        user: appContext.user.email
       }),
     });
 
     if (!response.ok) {
-      setError(response.statusText);
-      console.log("SUCCESS")
+      let json = await response.json();
+      appContext.setNotification( {
+        color: 'danger',
+        message: 'An error occurred'
+      } );
+      setTimeout(() => appContext.setNotification( null ), 3000);
+      //setError(response.statusText);
+      //console.log("SUCCESS")
     }
+
+    appContext.setNotification( {
+      color: 'success',
+      message: 'Your order was placed'
+    } );
+    setTimeout(() => appContext.setNotification( null ), 5000);
+    Router.push( '/' );
 
     // OTHER stripe methods you can use depending on app
     // // or createPaymentMethod - https://stripe.com/docs/js/payment_intents/create_payment_method

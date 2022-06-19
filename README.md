@@ -71,8 +71,8 @@ For the **Authenticated** role:
 
 ### Checkout Functionality
 
-- [ ] User can check out with Stripe
-- [ ] User receives a success message
+- [x] User can check out with Stripe
+- [x] User receives a success message
 - [x] Input fields are validated
 
 ## Contributing
@@ -295,6 +295,9 @@ for more details
 - <https://github.com/strapi/strapi/issues/9145>
 - <https://github.com/strapi/strapi/issues/10326>
 - <https://docs-v3.strapi.io/developer-docs/latest/development/plugins/users-permissions.html#providers>
+- <https://nextjs.org/docs/api-reference/next.config.js/environment-variables>
+- 
+- <https://nextjs.org/docs/basic-features/data-fetching/get-static-props>
 
 ### Next.js
 

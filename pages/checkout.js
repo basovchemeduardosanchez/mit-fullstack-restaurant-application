@@ -8,16 +8,15 @@ import CheckoutForm from "../components/checkoutForm";
 import AppContext from "../components/context";
 import Cart from "../components/cart";
 
-function Checkout() {
+function Checkout({STRIPE_PUBLIC_KEY}) {
   // get app context
   const {isAuthenticated} = useContext(AppContext);
+  
   // isAuthenticated is passed to the cart component to display order button
   //const isAuthenticated  = true;
   
   // load stripe to inject into elements components
-  const stripePromise = loadStripe(
-    "pk_test_51HaLhVGgpfLkdZwmHVQcCOdUzwLWqV7umg9EbicemJqLOcLBPDrPtszruyxf4UzqH0lKwaNj5se3tHldNx92nPjI00Zoi8VgBN"
-  );
+  const stripePromise = loadStripe( STRIPE_PUBLIC_KEY );
 
   return (
     <Row>
@@ -34,4 +33,13 @@ function Checkout() {
   );
   // }
 }
+
+export async function getStaticProps(){
+  return {
+    props: {
+      STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
+    }
+  }
+}
+
 export default Checkout;
