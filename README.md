@@ -61,7 +61,7 @@ For the **Authenticated** role:
 ### Search Functionality
 
 - [x] User can search for restaurants from home page
-- [ ] User can search for dishes on restaurant page
+- [x] User can search for dishes on restaurant page
 
 ### Cart Functionality
 
@@ -296,7 +296,6 @@ for more details
 - <https://github.com/strapi/strapi/issues/10326>
 - <https://docs-v3.strapi.io/developer-docs/latest/development/plugins/users-permissions.html#providers>
 - <https://nextjs.org/docs/api-reference/next.config.js/environment-variables>
-- 
 - <https://nextjs.org/docs/basic-features/data-fetching/get-static-props>
 
 ### Next.js
