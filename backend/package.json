@@ -20,6 +20,8 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "knex": "0.21.18",
+    "pg": "^8.7.3",
+    "pg-connection-string": "^2.5.0",
     "sqlite3": "5.0.0",
     "strapi": "3.6.10",
     "strapi-admin": "3.6.10",
@@ -42,7 +44,7 @@
     "uuid": "a45046ad-52e3-426c-a7aa-25c5de132bfe"
   },
   "engines": {
-    "node": ">=10.16.0 <=16.x.x",
+    "node": ">=10.16.0 <=14.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
