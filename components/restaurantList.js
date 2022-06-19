@@ -13,10 +13,14 @@ import {
   CardTitle,
   Container,
   Row,
-  Col} from "reactstrap";
+  Col,
+  InputGroup,
+  InputGroupAddon,
+  Input} from "reactstrap";
 
 function RestaurantList(props){
   const[restaurantID, setRestaurantID] = useState(0)
+  const [dishesQuery, setDishesQuery] = useState("");
   const {cart } = useContext(AppContext);
   const [state, setState] = useState(cart)
   const GET_RESTAURANTS = gql`
@@ -45,7 +49,7 @@ let restId = searchQuery?.[0]?.id
  
 // definet renderer for Dishes
   const renderDishes = (restaurantID) => {
-    return (<Dishes restId={restaurantID}> </Dishes>)
+    return <Dishes restId={restaurantID} search={dishesQuery}> </Dishes>
   };
 if(searchQuery.length > 0){
   const restList = searchQuery.map((res) => (
@@ -77,6 +81,19 @@ if(searchQuery.length > 0){
       {restList}
     </Row>
   
+    { restaurantID > 0 ? (
+      <Row>
+      <Col>
+      <InputGroup>
+      <InputGroupAddon addonType="append"> Search Dishes</InputGroupAddon>
+      <Input
+        onChange={(e) => setDishesQuery(e.target.value.toLocaleLowerCase())}
+        value={dishesQuery}
+      />
+      </InputGroup><br></br>
+      </Col>
+      </Row>
+    ) : null }
     <Row xs='3'>
     {renderDishes(restaurantID)}
     </Row>

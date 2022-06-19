@@ -11,7 +11,7 @@ import {
   CardTitle,
   Row,
   Col} from "reactstrap";
-function Dishes({restId}){
+function Dishes({restId, search}){
   const [restaurantID, setRestaurantID] = useState()
   const {addItem} = useContext(AppContext)
 
@@ -49,7 +49,7 @@ const GET_RESTAURANT_DISHES = gql`
 
     return (
       <>
-          {restaurant.dishes.map((res) => (
+          {restaurant.dishes.filter( dish => dish.name.toLowerCase().includes( search ) ).map((res) => (
             <Col xs="6" sm="4" style={{ padding: 0 }} key={res.id}>
               <Card style={{ margin: "0 10px" }}>
                 <CardImg
@@ -62,7 +62,7 @@ const GET_RESTAURANT_DISHES = gql`
                   <CardText>{res.description}</CardText>
                 </CardBody>
                 <div className="card-footer">
-                  <Button color="info"
+                  <Button
                     outline
                     color="primary"
                     onClick = {()=> addItem(res)}
