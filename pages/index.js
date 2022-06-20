@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Cart from "../components/cart"
 import {ApolloProvider,ApolloClient,HttpLink, InMemoryCache} from '@apollo/client';
 import RestaurantList from '../components/restaurantList';
 import { InputGroup, InputGroupAddon,Input} from "reactstrap";
+import AppContext from "../components/context";
 
 
 function Home() {
@@ -12,7 +13,7 @@ function Home() {
     const link = new HttpLink({ uri: `${API_URL}/graphql`})
     const cache = new InMemoryCache()
     const client = new ApolloClient({link,cache});
- 
+    const appContext = useContext( AppContext );
   
     return (
         <ApolloProvider client={client}>
@@ -29,7 +30,7 @@ function Home() {
                 </InputGroup><br></br>
             </div>
             <RestaurantList search={query} />
-            <Cart> </Cart>
+            {appContext.isAuthenticated ? <Cart> </Cart> : <p>Sign in to order</p>}
         </ApolloProvider>
     );
   }
