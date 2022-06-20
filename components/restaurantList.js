@@ -17,6 +17,7 @@ import {
   InputGroup,
   InputGroupAddon,
   Input} from "reactstrap";
+import { useRouter } from 'next/router';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
@@ -25,6 +26,7 @@ function RestaurantList(props){
   const [dishesQuery, setDishesQuery] = useState("");
   const {cart } = useContext(AppContext);
   const [state, setState] = useState(cart)
+  const router = useRouter();
   const GET_RESTAURANTS = gql`
     query {
       restaurants {
@@ -62,7 +64,7 @@ if(searchQuery.length > 0){
           top={true}
           style={{ height: 200, objectFit: 'cover' }}
           src={
-            res.image?.url ? API_URL + res.image.url : '/generic-restaurant.jpg'
+            res.image?.url ? API_URL + res.image.url : `${router.basePath}/generic-restaurant.jpg`
           }
         />
         <CardBody>
