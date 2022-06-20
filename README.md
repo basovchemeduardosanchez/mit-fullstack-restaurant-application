@@ -230,8 +230,8 @@ For the **Authenticated** role:
 3. Install Node.js with NVM
 
     ```bash
-    nvm install lts/erbium
-    nvm use lts/erbium
+    nvm install lts/fermium
+    nvm use lts/fermium
     ```
 
 4. Upgrade npm to npm 8
@@ -246,13 +246,31 @@ For the **Authenticated** role:
     npm install --global yarn
     ```
 
+6. Fill in the .env files
+
+    ```bash
+    cp .env.example .env
+    vim .env
+    # Add the value for STRIPE_PUBLIC_KEY
+    cp .env.production.example .env.production
+    vim .env.production
+    # Add the value for NEXT_PUBLIC_API_URL
+    cp backend/.env.example backend/.env
+    vim backend/.env
+    # Add the value for STRIPE_PRIVATE_KEY
+    ```
+
 ### Run
+
+- When paying, use the test card `4242 4242 4242 4242` when paying, set the card
+    date to be a future date and set the CVV/CVC to be three digits
 
 Run locally by executing:
 
 ```bash
+nvm use
 yarn
-yarn dev
+yarn develop
 ```
 
 #### Running the Frontend
@@ -260,8 +278,9 @@ yarn dev
 Run locally by executing:
 
 ```bash
+nvm use
 yarn
-yarn dev
+yarn develop:frontend
 ```
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to
@@ -275,6 +294,7 @@ auto-updates as you edit the file.
 Run locally by executing:
 
 ```bash
+nvm use
 cd backend
 yarn
 yarn develop
@@ -286,8 +306,8 @@ yarn develop
 
 ```bash
 # Make sure to add your stripe secret key into the backend/.env file
-cd backend
 nvm use
+cd backend
 heroku login
 heroku create mit-fs-restaurant-app-strapi
 heroku config:set PROJECT_PATH=backend
@@ -317,7 +337,7 @@ heroku logout
 # - Make sure to add your STRIPE_PUBLIC_KEY into the .env file
 # - Make sure to set your NEXT_PUBLIC_API_URL into the .env.production file to
 #   the root of your strapi server (e.g. https://mit-fs-restaurant-app-strapi.herokuapp.com)
-use nvm
+nvm use
 yarn deploy
 ```
 
