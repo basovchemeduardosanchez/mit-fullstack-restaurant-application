@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "develop": "concurrently \"yarn:develop:frontend\" \"yarn:develop:backend\"",
-    "build": "NODE_ENV=production next build && next export",
+    "deploy": "gh-pages -td out",
+    "build": "NODE_ENV=production next build && next export && touch ./out/.nojekyll",
     "start": "cd out && http-server -p 3000 --cors",
     "lint": "run-s lint:*",
     "develop:frontend": "next dev",
@@ -12,6 +13,7 @@
     "start:next": "next start",
     "lint:markdown": "markdownlint-cli2 .",
     "lint:js": "cd backend && eslint",
+    "predeploy": "run-s build",
     "postinstall": "yarn --cwd 'backend'"
   },
   "dependencies": {
@@ -20,6 +22,7 @@
     "@stripe/stripe-js": "^1.10.0",
     "axios": "^0.21.0",
     "dotenv": "^16.0.1",
+    "gh-pages": "^4.0.0",
     "graphql": "^15.3.0",
     "http-server": "^14.1.1",
     "isomorphic-fetch": "^3.0.0",

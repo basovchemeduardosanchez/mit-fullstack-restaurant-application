@@ -317,6 +317,7 @@ heroku logout
 - <https://stackoverflow.com/a/53221996/1714951>
 - <https://forum.strapi.io/t/unable-to-create-content-after-deploy-to-heroku/2047>
 - <https://stackoverflow.com/a/61978654/1714951>
+- <https://stackoverflow.com/a/64493580>
 
 ### Next.js
 
