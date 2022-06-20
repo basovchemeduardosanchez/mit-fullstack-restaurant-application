@@ -11,6 +11,9 @@ import {
   CardTitle,
   Row,
   Col} from "reactstrap";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
 function Dishes({restId, search}){
   const [restaurantID, setRestaurantID] = useState()
   const {addItem} = useContext(AppContext)
@@ -54,8 +57,8 @@ const GET_RESTAURANT_DISHES = gql`
               <Card style={{ margin: "0 10px" }}>
                 <CardImg
                   top={true}
-                  style={{ height: 150, width:150 }}
-                  src={`http://localhost:1337${res.image.url}`}
+                  style={{ height: 150, width:150, objectFit: 'cover' }}
+                  src={ res.image?.url ? `${API_URL}${res.image.url}` : '/generic-dish.jpg'}
                 />
                 <CardBody>
                   <CardTitle>{res.name}</CardTitle>

@@ -18,6 +18,8 @@ import {
   InputGroupAddon,
   Input} from "reactstrap";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
 function RestaurantList(props){
   const[restaurantID, setRestaurantID] = useState(0)
   const [dishesQuery, setDishesQuery] = useState("");
@@ -52,14 +54,15 @@ let restId = searchQuery?.[0]?.id
     return <Dishes restId={restaurantID} search={dishesQuery}> </Dishes>
   };
 if(searchQuery.length > 0){
-  const restList = searchQuery.map((res) => (
-    <Col xs="6" sm="4" key={res.id}>
+  const restList = searchQuery.map((res) => {
+    console.log( res.image )
+    return (<Col xs="6" sm="4" key={res.id}>
       <Card style={{ margin: "0 0.5rem 20px 0.5rem" }}>
         <CardImg
           top={true}
-          style={{ height: 200 }}
+          style={{ height: 200, objectFit: 'cover' }}
           src={
-          `http://localhost:1337`+ res.image.url
+            res.image?.url ? API_URL + res.image.url : '/generic-restaurant.jpg'
           }
         />
         <CardBody>
@@ -72,7 +75,8 @@ if(searchQuery.length > 0){
         </div>
       </Card>
     </Col>
-  ))
+  )
+  });
 
   return(
 
