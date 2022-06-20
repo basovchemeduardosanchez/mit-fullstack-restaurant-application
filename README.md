@@ -282,9 +282,12 @@ yarn develop
 
 ### Deploy
 
+#### Back-end deployment to Heroku
+
 ```bash
-# Make sure to add your stripe secret key into the .env file
+# Make sure to add your stripe secret key into the backend/.env file
 cd backend
+nvm use
 heroku login
 heroku create mit-fs-restaurant-app-strapi
 heroku config:set PROJECT_PATH=backend
@@ -299,9 +302,23 @@ git push heroku HEAD:master
 heroku open
 heroku logs --tail
 heroku logout
-# In the Strapi admin dashboard go to plugins "Config Sync" and click import
-# Register restaurants and dishes
-# Enable automatic github deploys in the Heroku dashboard
+# - In the Strapi admin dashboard go to plugins "Config Sync" and click import
+# - Register restaurants and dishes without images since heroku deployments do
+#   not support images
+# - Setup Discord With your discord login API details and set the redirect url
+#   to the URL in the redirect page in the front-end
+#   (e.g. https://basovchemeduardosanchez.github.io/mit-fullstack-restaurant-application/connect/discord/redirect)
+# - Enable automatic github deploys in the Heroku dashboard
+```
+
+#### Front-end deployment to Github Pages
+
+```bash
+# - Make sure to add your STRIPE_PUBLIC_KEY into the .env file
+# - Make sure to set your NEXT_PUBLIC_API_URL into the .env.production file to
+#   the root of your strapi server (e.g. https://mit-fs-restaurant-app-strapi.herokuapp.com)
+use nvm
+yarn deploy
 ```
 
 ## Resources
