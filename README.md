@@ -282,12 +282,27 @@ yarn develop
 
 ### Deploy
 
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment)
-for more details
+```bash
+# Make sure to add your stripe secret key into the .env file
+cd backend
+heroku login
+heroku create mit-fs-restaurant-app-strapi
+heroku config:set PROJECT_PATH=backend
+# Link the project with github in the Heroku dashboard. See: https://devcenter.heroku.com/articles/github-integration
+heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack
+heroku buildpacks:add heroku/nodejs
+heroku addons:create heroku-postgresql:hobby-dev
+heroku config:set NODE_ENV=production
+heroku config:set DEPLOYMENT_URL=$(heroku info -s | grep web_url | cut -d= -f2)
+heroku config:set STRIPE_SECRET_KEY=$( source .env; echo "$STRIPE_SECRET_KEY" )
+git push heroku HEAD:master
+heroku open
+heroku logs --tail
+heroku logout
+# In the Strapi admin dashboard go to plugins "Config Sync" and click import
+# Register restaurants and dishes
+# Enable automatic github deploys in the Heroku dashboard
+```
 
 ## Resources
 
@@ -297,6 +312,11 @@ for more details
 - <https://docs-v3.strapi.io/developer-docs/latest/development/plugins/users-permissions.html#providers>
 - <https://nextjs.org/docs/api-reference/next.config.js/environment-variables>
 - <https://nextjs.org/docs/basic-features/data-fetching/get-static-props>
+- <https://docs-v3.strapi.io/developer-docs/latest/setup-deployment-guides/deployment/hosting-guides/heroku.html>
+- <https://devcenter.heroku.com/articles/github-integration>
+- <https://stackoverflow.com/a/53221996/1714951>
+- <https://forum.strapi.io/t/unable-to-create-content-after-deploy-to-heroku/2047>
+- <https://stackoverflow.com/a/61978654/1714951>
 
 ### Next.js
 
